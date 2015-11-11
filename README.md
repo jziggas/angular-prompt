@@ -72,7 +72,7 @@ function MyCtrl($scope, prompt) {
  - #### options.inputRequired
  Type: `Boolean`  
  Default: `true`
- This will make the input field required.
+ Sets the input field to be required or optional.
 
  - #### options.inputMinLength
  Type: `number`  
