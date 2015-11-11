@@ -126,7 +126,7 @@ angular.module('cgPrompt').run(['$templateCache', function($templateCache) {
     "                    <span ng-if=\"cgPromptForm.cgPromptInput.$error.required\">This field is required.</span>\n" +
     "                </div>\n" +
     "                <div class=\"input-group\" ng-if=\"options.values\">\n" +
-    "                    <input id=\"cgPromptInput\" type=\"text\" class=\"form-control\" placeholder=\"{{options.label}}\" ng-model=\"input.name\" ng-change=\"changed=true\" autofocus=\"autofocus\"/>\n" +
+    "                    <input id=\"cgPromptInput\" type=\"text\" class=\"form-control\" placeholder=\"{{options.label}}\" ng-model=\"input.name\" ng-change=\"changed=true\" autofocus=\"autofocus\"/ required>\n" +
     "\n" +
     "                    <div class=\"input-group-btn\" dropdown>\n" +
     "                        <button type=\"button\" class=\"btn btn-default dropdown-toggle\" dropdown-toggle data-toggle=\"dropdown\"><span class=\"caret\"></span></button>\n" +

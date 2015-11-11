@@ -19,7 +19,7 @@
                     <span ng-if="cgPromptForm.cgPromptInput.$error.required">This field is required.</span>
                 </div>
                 <div class="input-group" ng-if="options.values">
-                    <input id="cgPromptInput" type="text" class="form-control" placeholder="{{options.label}}" ng-model="input.name" ng-change="changed=true" autofocus="autofocus"/>
+                    <input id="cgPromptInput" type="text" class="form-control" placeholder="{{options.label}}" ng-model="input.name" ng-change="changed=true" autofocus="autofocus"/ required>
 
                     <div class="input-group-btn" dropdown>
                         <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle data-toggle="dropdown"><span class="caret"></span></button>
