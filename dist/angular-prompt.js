@@ -121,9 +121,9 @@ angular.module('cgPrompt').run(['$templateCache', function($templateCache) {
     "                <label for=\"cgPromptInput\">{{options.label}}</label>\n" +
     "                <input id=\"cgPromptInput\" type=\"text\" class=\"form-control\" placeholder=\"{{options.label}}\" name=\"cgPromptInput\" ng-model=\"input.name\" ng-change=\"changed=true\" ng-if=\"!options.values || options.values.length === 0\"/ autofocus=\"autofocus\" ng-maxlength=\"{{options.inputMaxLength}}\" ng-minlength=\"{{options.inputMinLength}}\" ng-required=\"{{options.inputRequired}}\">\n" +
     "                <div ng-show=\"changed\" style=\"margin:5px;color:#a94442;\">\n" +
-    "                    <span ng-if=\"cgPromptForm.cgPromptInput.$error.minlength\" class=\"cg-prompt-error\">A minimum length of {{ options.inputMaxLength }} is required.</span>\n" +
-    "                    <span ng-if=\"cgPromptForm.cgPromptInput.$error.maxlength\">A minimum length of {{ options.inputMinLength }} is required.</span>\n" +
-    "                    <span ng-if=\"cgPromptForm.cgPromptInput.$error.required\">This field is required.</span>\n" +
+    "                    <p ng-if=\"cgPromptForm.cgPromptInput.$error.minlength\" class=\"cg-prompt-error\">'{{ options.label }}' requires at least {{ options.inputMinLength }} characters.</p>\n" +
+    "                    <p ng-if=\"cgPromptForm.cgPromptInput.$error.maxlength\">'{{ options.label }}' can have at most {{ options.inputMaxLength }} characters.</p>\n" +
+    "                    <p ng-if=\"cgPromptForm.cgPromptInput.$error.required\">The field for '{{ options.label }}' is required to continue.</p>\n" +
     "                </div>\n" +
     "                <div class=\"input-group\" ng-if=\"options.values\">\n" +
     "                    <input id=\"cgPromptInput\" type=\"text\" class=\"form-control\" placeholder=\"{{options.label}}\" ng-model=\"input.name\" ng-change=\"changed=true\" autofocus=\"autofocus\"/ required>\n" +
