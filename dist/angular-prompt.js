@@ -8,6 +8,9 @@ angular.module('cgPrompt').factory('prompt',['$modal','$q',function($modal,$q){
             title: '',
             message: '',
             input: false,
+            inputRequired: true,
+            inputMinLength: 0,
+            inputMaxLength: 1000,
             label: '',
             value: '',
             values: false,
@@ -95,8 +98,6 @@ angular.module('cgPrompt').controller('cgPromptCtrl',['$scope','options','$timeo
             }
         }
     },100);
-    
-
 }]);
 
 
@@ -118,9 +119,14 @@ angular.module('cgPrompt').run(['$templateCache', function($templateCache) {
     "        <form id=\"cgPromptForm\" name=\"cgPromptForm\" ng-if=\"options.input\" ng-submit=\"submit()\">\n" +
     "            <div class=\"form-group\" ng-class=\"{'has-error':cgPromptForm.$invalid && changed}\">\n" +
     "                <label for=\"cgPromptInput\">{{options.label}}</label>\n" +
-    "                <input id=\"cgPromptInput\" type=\"text\" class=\"form-control\"  placeholder=\"{{options.label}}\" ng-model=\"input.name\" required ng-change=\"changed=true\" ng-if=\"!options.values || options.values.length === 0\"/ autofocus=\"autofocus\">\n" +
+    "                <input id=\"cgPromptInput\" type=\"text\" class=\"form-control\" placeholder=\"{{options.label}}\" name=\"cgPromptInput\" ng-model=\"input.name\" ng-change=\"changed=true\" ng-if=\"!options.values || options.values.length === 0\"/ autofocus=\"autofocus\" ng-maxlength=\"{{options.inputMaxLength}}\" ng-minlength=\"{{options.inputMinLength}}\" ng-required=\"{{options.inputRequired}}\">\n" +
+    "                <div ng-show=\"changed\" style=\"margin:5px;color:#a94442;\">\n" +
+    "                    <span ng-if=\"cgPromptForm.cgPromptInput.$error.minlength\" class=\"cg-prompt-error\">A minimum length of {{ options.inputMaxLength }} is required.</span>\n" +
+    "                    <span ng-if=\"cgPromptForm.cgPromptInput.$error.maxlength\">A minimum length of {{ options.inputMinLength }} is required.</span>\n" +
+    "                    <span ng-if=\"cgPromptForm.cgPromptInput.$error.required\">This field is required.</span>\n" +
+    "                </div>\n" +
     "                <div class=\"input-group\" ng-if=\"options.values\">\n" +
-    "                    <input id=\"cgPromptInput\" type=\"text\" class=\"form-control\" placeholder=\"{{options.label}}\" ng-model=\"input.name\" required ng-change=\"changed=true\" autofocus=\"autofocus\"/>\n" +
+    "                    <input id=\"cgPromptInput\" type=\"text\" class=\"form-control\" placeholder=\"{{options.label}}\" ng-model=\"input.name\" ng-change=\"changed=true\" autofocus=\"autofocus\"/>\n" +
     "\n" +
     "                    <div class=\"input-group-btn\" dropdown>\n" +
     "                        <button type=\"button\" class=\"btn btn-default dropdown-toggle\" dropdown-toggle data-toggle=\"dropdown\"><span class=\"caret\"></span></button>\n" +

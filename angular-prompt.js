@@ -8,6 +8,9 @@ angular.module('cgPrompt').factory('prompt',['$modal','$q',function($modal,$q){
             title: '',
             message: '',
             input: false,
+            inputRequired: true,
+            inputMinLength: 0,
+            inputMaxLength: 1000,
             label: '',
             value: '',
             values: false,
@@ -95,7 +98,5 @@ angular.module('cgPrompt').controller('cgPromptCtrl',['$scope','options','$timeo
             }
         }
     },100);
-    
-
 }]);
 

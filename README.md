@@ -69,6 +69,21 @@ function MyCtrl($scope, prompt) {
  Default: `false`  
  Set to `true` if you wish to prompt the user for a text value.
 
+ - #### options.inputRequired
+ Type: `Boolean`  
+ Default: `true`
+ Set to `false` if you wish to prompt the user for an optional text value.
+
+ - #### options.inputMinLength
+ Type: `number`  
+ Default: `0`
+ Set a maximum length to the input value.
+
+ - #### options.inputMaxLength
+ Type: `number`  
+ Default: `1000`
+ Set a minimum length to the input value.
+
  - #### options.label
  Type: `String`  
  Default: `''`  
